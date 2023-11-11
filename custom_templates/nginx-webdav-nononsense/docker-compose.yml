@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  app:
+    image: dgraziotin/nginx-webdav-nononsense
+    container_name: dav-download
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+      - WEBDAV_USERNAME=admin
+      - WEBDAV_PASSWORD=Y_Theta24680
+      - SERVER_NAMES=ser.y-theta.cn,192.168.0.104
+      - TIMEOUTS_S=1200
+      - CLIENT_MAX_BODY_SIZE=120M
+      - PUID=0
+      - PGID=0
+    volumes:
+      - /mnt/ExtData/download:/data
+      - /mnt/ExtData/configs:/config
+    ports:
+      - 20300:80

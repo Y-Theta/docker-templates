@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  nginx:
+    image: uozi/nginx-ui:latest
+    container_name: nginx-ui
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment: 
+      - TZ=Asia/Shanghai
+    volumes:
+      - /home/tools/nginxUI/nginx:/etc/nginx
+      - /home/tools/nginxUI/ui:/etc/nginx-ui
+      - /mnt/ExtData/download:/mnt/ExtData/download
+      - /var/www:/var/www
+    ports:
+      - 20200:80
+      - 20201:443
+      

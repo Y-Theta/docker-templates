@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  app:
+    image: rapiz1/rathole
+    container_name: rathole-nas
+    command: --client /app/config.toml
+    restart: unless-stopped
+    network_mode: 'host'
+    volumes:
+      - "/home/tools/rathole/config.nextcloud.toml:/app/config.toml"
+    #environment:
+    #  - "RUST_LOG=info"
+    #  - "NOISE_PATTERN=1"
+    #  - "ADDRESS=67.230.173.13:20100"
+    #  - "TRANSPORT_TYPE=noise"
+    #  - "NOISE_PATTERN=Tj6y8sbNi4SUNEGFqM7xps94j/GqvUdic/HGxlLI1Qg="
+    #  - "SERVICE_TOKEN_1=20154530"
+    #  - "SERVICE_NAME_1=ssh"
+    #  - "SERVICE_ADDRESS_1=127.0.0.1:22"
+    #dns:
+    #  - 218.195.24.3
+    #  - 114.114.114.114
+    #Private Key:
+    #AGSivmVr5gxZohCnQ1PufWTw7qrLk6np5Ub4W9TNTV8=
+    #Public Key:
+    #Tj6y8sbNi4SUNEGFqM7xps94j/GqvUdic/HGxlLI1Qg=
